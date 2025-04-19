@@ -1,46 +1,14 @@
 require('dotenv').config();
-const {
-  Client,
-  IntentsBitField,
-  ButtonBuilder,
-  ButtonStyle,
-  AttachmentBuilder,
-  REST,
-  Routes,
-  ActionRowBuilder,
-  InteractionType,
-} = require('discord.js');
-const {
-  createButtonRows,
-  commands,
-  sleep,
-} = require('./utils.js');
-const {
-  startTime,
-  chooseTimeout,
-  timeBetweenRounds,
-  token,
-  allowedRoleId,
-  prefix,
-} = require('./config.json');
+const {Client,IntentsBitField,ButtonBuilder,ButtonStyle,AttachmentBuilder,REST,Routes,ActionRowBuilder,InteractionType} = require('discord.js');
+const {createButtonRows,commands,sleep} = require('./utils.js');
+const {startTime,chooseTimeout,timeBetweenRounds,token,allowedRoleId,prefix} = require('./config.json');
 const { createWheel } = require('./wheel.js');
-
-const client = new Client({
-  intents: [
-    IntentsBitField.Flags.Guilds,
-    IntentsBitField.Flags.GuildMessages,
-    IntentsBitField.Flags.MessageContent,
-  ],
-});
-
+const client = new Client({ intents: [ IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildMessages, IntentsBitField.Flags.MessageContent ]});
 const Games = new Map();
 const KickedPlayers = new Map();
 const AllPlayers = new Map();
 
-process.on('unhandledRejection', error => {
-  console.error('Unhandled promise rejection:', error);
-});
-
+process.on('unhandledRejection', error => {console.error('Unhandled promise rejection:', error);});
 client.on('ready', async () => {
   const rest = new REST().setToken(token);
 
@@ -52,17 +20,6 @@ client.on('ready', async () => {
     console.error('Error refreshing application commands:', error);
   }
 
-  console.log(`
-    ██╗    ██╗██╗ ██████╗██╗  ██╗    ███████╗████████╗██╗   ██╗██████╗ ██╗ ██████╗ 
-    ██║    ██║██║██╔════╝██║ ██╔╝    ██╔════╝╚══██╔══╝██║   ██║██╔══██╗██║██╔═══██╗
-    ██║ █╗ ██║██║██║     █████╔╝     ███████╗   ██║   ██║   ██║██║  ██║██║██║   ██║
-    ██║███╗██║██║██║     ██╔═██╗     ╚════██║   ██║   ██║   ██║██║  ██║██║██║   ██║
-    ╚███╔███╔╝██║╚██████╗██║  ██╗    ███████║   ██║   ╚██████╔╝██████╔╝██║╚██████╔╝
-     ╚══╝╚══╝ ╚═╝ ╚═════╝╚═╝  ╚═╝    ╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝ 
-    `);
-  console.log('I am ready!');
-  console.log('Bot By Wick Studio');
-  console.log('discord.gg/wicks');
 });
 
 client.on('messageCreate', async message => {
