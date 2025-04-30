@@ -2,28 +2,6 @@
 
 **A fun and interactive roulette game for Discord servers, developed using `discord.js v14`. Join the game, challenge your friends, and try to be the last one standing!**
 
-
-## Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Commands](#commands)
-- [Game Rules](#game-rules)
-- [Usage](#usage)
-- [Development](#development)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Features
-
-- 🎮 **Interactive Gameplay**: Play an exciting roulette game within your Discord server.
-- 🛡️ **Shield & Revive Mechanics**: Protect yourself or bring back fallen players.
-- 🕹️ **Automated Rounds**: The game progresses automatically, providing a seamless experience.
-- 📊 **Game Statistics**: View detailed statistics for all players after the game ends.
-- 🔥 **Kick Players**: Choose who to kick out of the game as the rounds progress.
-- 🎉 **Randomized Events**: Enjoy the unpredictability of random actions within the game.
-
 ## Installation
 
 1. **Clone the Repository:**
